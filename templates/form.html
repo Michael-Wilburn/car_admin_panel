@@ -1,0 +1,67 @@
+<form id="car-form" class="form-car" hx-put="/api/car/{{.Car.ID}}"
+    hx-target="body">
+    <div>
+        <select class="form-select" name="typeCar" id="type-car" required>
+            <option disabled>Tipo de vehículo</option>
+            <option value="HATCHBACK" {{if eq .Car.TypeCar "HATCHBACK"
+                }}selected{{end}}>HATCHBACK</option>
+            <option value="MOTO" {{if eq .Car.TypeCar "MOTO" }}selected{{end}}>
+                MOTO</option>
+            <option value="PICK-UP" {{if eq .Car.TypeCar "PICK-UP"
+                }}selected{{end}}>PICK-UP</option>
+            <option value="SEDAN" {{if eq .Car.TypeCar "SEDAN"
+                }}selected{{end}}>SEDAN</option>
+            <option value="SUV" {{if eq .Car.TypeCar "SUV" }}selected{{end}}>SUV
+            </option>
+            <option value="VAN" {{if eq .Car.TypeCar "VAN" }}selected{{end}}>VAN
+            </option>
+        </select>
+    </div>
+    <input type="hidden" name="carID" value="{{.Car.ID}}" required>
+    <div>
+        <input class="form-control" type="text" name="brand" placeholder="Marca"
+            id="brand-car" value="{{.Car.Brand}}" required>
+    </div>
+    <div>
+        <input class="form-control" type="text" name="model"
+            placeholder="Modelo" id="model-car" value="{{.Car.Model}}" required>
+    </div>
+    <div>
+        <input class="form-control" type="text" name="year" placeholder="Año"
+            id="year-car" value="{{.Car.Year}}" required>
+    </div>
+    <div>
+        <input class="form-control" type="text" name="kilometers"
+            placeholder="Kilómetros" id="kilometers-car"
+            value="{{.Car.Kilometers}}" required>
+    </div>
+    <div>
+        <input class="form-control" type="text" name="licensePlate"
+            placeholder="Patente" id="licensePlate-car"
+            value="{{.Car.CarDomain}}" required>
+    </div>
+    <div>
+        <select class="form-select" name="currency" id="currency" required>
+            <option disabled>Moneda</option>
+            <option value="$" {{if eq .Car.Currency "$" }}selected{{end}}>$
+            </option>
+            <option value="USD" {{if eq .Car.Currency "USD" }}selected{{end}}>
+                USD</option>
+        </select>
+    </div>
+    <div>
+        <input class="form-control" type="text" name="price"
+            placeholder="Precio" id="price-car" value="{{printf " %.0f"
+            .Car.Price}}" required>
+    </div>
+    <div>
+        <input class="form-control" type="text" name="infoPrice"
+            placeholder="Precio Info" id="infoPrice-car" value="{{printf " %.0f"
+            .Car.InfoPrice}}" required>
+    </div>
+
+    <button type="submit" id="btn-car-safe"
+        class="btn btn-warning btn-lg">Actualizar</button>
+    <p class="cars-amount">Vehículos: <span id="amountCars">{{.Count}}</span>
+    </p>
+</form>

@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+.form-car {
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.table-car {
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.board-car {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    column-gap: 10px;
+}
+
+
+#car-brand {
+    cursor: pointer;
+}
+
+#car-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    padding: 0.5rem;
+}
+
+div {
+    padding: 1rem;
+}
+
+input {
+    padding: 1rem;
+    width: 400px;
+    border-radius: 0.5rem;
+    /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.input-check {
+    padding: 0;
+    width: fit-content;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.check-header {
+    text-align: center;
+}
+
+select {
+    padding: 1rem;
+}
+
+#btn-car-safe {
+    margin: 1rem;
+}
+
+.cars-amount span {
+    color: black;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.cars-amount {
+    color: black;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.htmx-swapping {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+.hover-effect {
+
+    /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
