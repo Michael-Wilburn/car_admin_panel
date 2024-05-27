@@ -14,6 +14,7 @@ import (
 	"github.com/Michael-Wilburn/car_admin_panel/db"
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
+	"github.com/joho/godotenv"
 	"github.com/jung-kurt/gofpdf"
 	"github.com/xuri/excelize/v2"
 )
@@ -72,8 +73,25 @@ func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 	http.Handle("/", routes)
 
-	log.Print("Listening on :3000...")
-	err = http.ListenAndServe(":3000", nil)
+	// Cargar variables de entorno desde el archivo .env
+	err = godotenv.Load(".env")
+	if err != nil {
+		log.Fatalf("Error loading .env file: %v", err)
+	}
+
+	// Obtener el puerto desde las variables de entorno
+	port, exists := os.LookupEnv("PORT")
+	if !exists {
+		log.Fatal("PORT not found in environment variables")
+	}
+
+	// Verificar si el puerto no está vacío
+	if port == "" {
+		log.Fatal("PORT is empty in environment variables")
+	}
+
+	log.Printf("Listening on :%s...", port)
+	err = http.ListenAndServe(":"+port, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
