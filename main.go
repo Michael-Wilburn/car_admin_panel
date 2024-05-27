@@ -435,7 +435,7 @@ func CreateCar(w http.ResponseWriter, r *http.Request) {
 	}
 	fmt.Println("car created")
 
-	http.Redirect(w, r, "/home", http.StatusSeeOther)
+	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 
 func DeleteCar(w http.ResponseWriter, r *http.Request) {
@@ -450,7 +450,7 @@ func DeleteCar(w http.ResponseWriter, r *http.Request) {
 		log.Println("Error al eliminar el coche: ", err.Error())
 	}
 
-	http.Redirect(w, r, "/home", http.StatusSeeOther)
+	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 
 func GetCar(w http.ResponseWriter, r *http.Request) {
@@ -520,5 +520,5 @@ func UpdateCar(w http.ResponseWriter, r *http.Request) {
 	}
 
 	fmt.Println("Car updated successfully")
-	http.Redirect(w, r, "/home", http.StatusSeeOther)
+	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
