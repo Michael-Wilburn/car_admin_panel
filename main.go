@@ -14,7 +14,6 @@ import (
 	"github.com/Michael-Wilburn/car_admin_panel/db"
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
-	"github.com/joho/godotenv"
 	"github.com/jung-kurt/gofpdf"
 	"github.com/xuri/excelize/v2"
 )
@@ -72,12 +71,6 @@ func main() {
 	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 	http.Handle("/", routes)
-
-	// Cargar variables de entorno desde el archivo .env
-	err = godotenv.Load(".env")
-	if err != nil {
-		log.Fatalf("Error loading .env file: %v", err)
-	}
 
 	// Obtener el puerto desde las variables de entorno
 	port, exists := os.LookupEnv("PORT")
