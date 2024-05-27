@@ -19,6 +19,29 @@
     column-gap: 10px;
 }
 
+@media (max-width: 768px) {
+    .board-car {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        /* Hace que los elementos se apilen uno debajo del otro */
+        row-gap: 10px;
+        /* Espacio entre los elementos verticalmente */
+    }
+
+
+    /* Cambiar el orden de los elementos */
+    #car-container {
+        order: 1;
+        /* Primero */
+    }
+
+    #car-form {
+        order: 2;
+        /* Segundo */
+    }
+}
+
+
 
 #car-brand {
     cursor: pointer;
